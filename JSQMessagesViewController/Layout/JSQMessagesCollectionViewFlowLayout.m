@@ -101,7 +101,9 @@ const CGFloat kJSQMessagesCollectionViewCellLabelHeightDefault = 20.0f;
 - (void)dealloc
 {
     _messageBubbleFont = nil;
+    
     _messageBubbleSizes = nil;
+    
     _dynamicAnimator = nil;
     _visibleIndexPaths = nil;
 }
@@ -122,6 +124,7 @@ const CGFloat kJSQMessagesCollectionViewCellLabelHeightDefault = 20.0f;
 
 - (void)setMessageBubbleFont:(UIFont *)messageBubbleFont
 {
+    NSAssert(messageBubbleFont, @"ERROR: messageBubbleFont must not be nil: %s", __PRETTY_FUNCTION__);
     _messageBubbleFont = messageBubbleFont;
     [self invalidateLayout];
 }
